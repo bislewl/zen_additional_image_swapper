@@ -45,14 +45,12 @@ if ($products_image != '' && $flag_show_product_info_additional_images != 0) {
       if (!is_dir($products_image_directory . $file)) {
         if (substr($file, strrpos($file, '.')) == $file_extension) {
           if(preg_match('/\Q' . $products_image_base . '\E/i', $file) == 1) {
-            if ($file != $products_image) {
-              if ($products_image_base . str_replace($products_image_base, '', $file) == $file) {
+             if ($products_image_base . str_replace($products_image_base, '', $file) == $file) {
                 //  echo 'I AM A MATCH ' . $file . '<br>';
                 $images_array[] = $file;
               } else {
                 //  echo 'I AM NOT A MATCH ' . $file . '<br>';
               }
-            }
           }
         }
       }
@@ -69,9 +67,9 @@ $num_images = sizeof($images_array);
 $list_box_contents = '';
 $title = '';
 
-if ($num_images) {
+if ($num_images > 1) {
   $row = 0;
-  $col = 1;
+  $col = 0;
   if ($num_images < IMAGES_AUTO_ADDED || IMAGES_AUTO_ADDED == 0 ) {
     $col_width = floor(100/$num_images);
   } else {
@@ -96,7 +94,7 @@ if ($num_images) {
     $list_box_contents[$row][$col] = array('params' => 'class="additionalImages centeredContent back"' . ' ' . 'style="width:' . $col_width . '%;"',
                                            'text' => "\n      " . $link);
     $col ++;
-    if ($col > (IMAGES_AUTO_ADDED)) {
+    if ($col > (IMAGES_AUTO_ADDED - 1)) {
       $col = 0;
       $row ++;
     }

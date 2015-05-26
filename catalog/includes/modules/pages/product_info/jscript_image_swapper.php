@@ -16,7 +16,7 @@ if (ADDT_IMAGE_SWAPPER_ENABLE == 'true') {
                 imgDiv = imgDiv + '</a></div>';
                 return imgDiv;
             }
-            $("#" + productsAdditionalImagesId).html(addAdditionalImage($("#" + productsMainImageId + " a").attr("href"), $("#" + productsMainImageId + " a img").attr("alt"), $("#" + productsMainImageId + " a img").attr("src")) + $("#" + productsAdditionalImagesId).html());
+         //   $("#" + productsAdditionalImagesId).html(addAdditionalImage($("#" + productsMainImageId + " a").attr("href"), $("#" + productsMainImageId + " a img").attr("alt"), $("#" + productsMainImageId + " a img").attr("src")) + $("#" + productsAdditionalImagesId).html());
 
             $('#' + productsAdditionalImagesId + ' a').click(function () {
 
